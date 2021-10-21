@@ -1,6 +1,10 @@
 plugins {
     id 'application'
     id 'com.github.johnrengelman.shadow' version '7.1.0' // create uber jar
+
+    // Use "gradle nativeCompile" to create a native binary with graal native-image.
+    // For details, see https://graalvm.github.io/native-build-tools/0.9.6/gradle-plugin.html
+    id 'org.graalvm.buildtools.native' version '0.9.6'
 }
 
 group 'com.als'
