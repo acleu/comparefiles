@@ -1,6 +1,5 @@
 package com.als.comparefiles;
 
-import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,7 +12,6 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
-@Slf4j
 public enum Criterion {
 
 	FileName() {
