@@ -1,0 +1,10 @@
+build
+out
+.idea
+.gradle
+*.swp
+Grade
+# gradlew
+# gradlew.bat
+/Test
+obsolete

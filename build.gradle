@@ -1,0 +1,48 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.0' // create uber jar
+}
+
+group 'com.als'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
+}
+
+application {
+    mainClass.set("com.als.comparefiles.CompareFiles")
+}
+
+dependencies {
+
+    implementation 'info.picocli:picocli:4.6.1'
+    annotationProcessor 'info.picocli:picocli-codegen:4.6.1'
+
+//    implementation 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
+//    implementation 'net.coobird:thumbnailator:0.4.8'
+    implementation 'ch.qos.logback:logback-classic:1.2.6'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    implementation 'com.intellij:annotations:12.0@jar'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+compileJava {
+    options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
+}
+
+test {
+    useJUnitPlatform()
+}
