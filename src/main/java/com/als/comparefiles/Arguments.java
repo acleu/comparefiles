@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Command(name = "cf",
-		version = "cf 1.0",
+		version = "cf 1.0.1-SNAPSHOT",
 		sortOptions = false,
 		mixinStandardHelpOptions = true,
 		showDefaultValues = true,
