@@ -28,7 +28,7 @@ public class Arguments implements Callable<Integer> {
 		None, Name, Dir, Path /* Dir + Name */
 	}
 
-	@Option(names = {"-l", "--location"}, description = "speØcifies which part of the relative pathname should be compared. Possible values: ${COMPLETION-CANDIDATES}")
+	@Option(names = {"-l", "--location"}, description = "specifies which part of the relative pathname should be compared. Possible values: ${COMPLETION-CANDIDATES}")
 	private Location location;
 
 	// Comparison by content  -------------------------------------------------

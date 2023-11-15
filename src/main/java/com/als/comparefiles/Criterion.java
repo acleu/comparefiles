@@ -10,7 +10,6 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
-import java.util.Objects;
 
 public enum Criterion {
 
@@ -131,7 +130,7 @@ public enum Criterion {
 					|| arguments.getContentLengthToCompare() == Long.MIN_VALUE)
 				return maxRead;
 
-			long bytesToReadTotal = Objects.requireNonNullElse(arguments.getContentLengthToCompare(), Long.MAX_VALUE) - readTotal;
+			long bytesToReadTotal = arguments.getContentLengthToCompare() - readTotal;
 
 
 			return (int) Math.max(0, Math.min(maxRead, bytesToReadTotal));
