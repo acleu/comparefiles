@@ -164,9 +164,9 @@ public enum Criterion {
 		}
 	};
 
-	public abstract Object getFingerprint(final FileEntry entry, Arguments arguments);
+	abstract Object getFingerprint(final FileEntry entry, Arguments arguments);
 
-	public abstract boolean isApplicable(Arguments arguments);
+	abstract boolean isApplicable(Arguments arguments);
 
 	@NotNull
 	public static List<Criterion> determineCriteria(@NotNull final Arguments arguments) {

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * This test just if picocli works, i.e. if Arguments is annotated correctly.
@@ -97,10 +98,11 @@ public class ArgumentsTest {
 		assertEquals(parse("-rremovePath"), new Arguments()
 				.withKeepPaths(new String[]{})
 				.withRemovePaths(new String[]{"removePath"}));
-		assertEquals(parse("-kkp1 kp2 -rrp1 rp2"), new Arguments()
-				.withKeepPaths(new String[]{"kp1", "kp2"})
-				.withRemovePaths(new String[]{"rp1", "rp2"}));
-		assertEquals(parse("-kkp1 kp2 -rrp1 rp2 -k kp3 -r rp3"), new Arguments()
+
+		assertThrows(CommandLine.UnmatchedArgumentException.class, () -> parse("-kkp1 kp2 -rrp1"));
+		assertThrows(CommandLine.UnmatchedArgumentException.class, () -> parse("-kkp1 -rrp1 rp2"));
+
+		assertEquals(parse("-kkp1 -kkp2 -rrp1 -rrp2 -k kp3 -r rp3"), new Arguments()
 				.withKeepPaths(new String[]{"kp1", "kp2", "kp3"})
 				.withRemovePaths(new String[]{"rp1", "rp2", "rp3"}));
 	}

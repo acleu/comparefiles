@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Command(name = "cf",
-		version = "cf 1.0.1-SNAPSHOT",
+		version = "cf 1.0.2-SNAPSHOT",
 		sortOptions = false,
 		mixinStandardHelpOptions = true,
 		showDefaultValues = true,
@@ -51,21 +51,21 @@ public class Arguments implements Callable<Integer> {
 
 	// Paths to search --------------------------------------------------------
 
-	@Option(names = {"-k", "--keepPaths"},
-			arity = "1..*",
-			description = "all following parameters are paths where originals are located, which should be kept")
+	@Option(names = {"-k", "--keepPath"},
+			arity = "1",
+			description = "the following parameter is a path where originals are located, which should be kept. May be used multiple times.")
 	private String[] keepPaths = {};
 
-	@Option(names = {"-r", "--removePaths"},
-			arity = "1..*",
-			description = "all following parameters are paths where removable duplicates are located")
+	@Option(names = {"-r", "--removePath"},
+			arity = "1",
+			description = "the following parameter is a path where removable duplicates are located. May be used multiple times.")
 	private String[] removePaths = {};
 
 	/**
 	 * A dummy implementation
 	 */
 	@Override
-	public Integer call() throws Exception {
+	public Integer call() {
 		return 0;
 	}
 }

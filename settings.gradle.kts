@@ -4,5 +4,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'comparefiles'
-
+rootProject.name = "comparefiles"
